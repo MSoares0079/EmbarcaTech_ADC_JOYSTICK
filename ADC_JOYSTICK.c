@@ -112,7 +112,7 @@ void setup_pwm(uint gpio, float duty_cycle) {
     uint slice = pwm_gpio_to_slice_num(gpio);// Obtém o slice associado ao pino GPIO
     pwm_set_clkdiv(slice, 250.0f);// Configura divisor de clock para 250 (clock base de 500kHz)
     pwm_set_wrap(slice, 10000);// Define o contador máximo (wrap) para 10.000
-    pwm_set_gpio_level(gpio, (uint16_t)(10000 * (duty_cycle / 100.0)));// Define o nível do duty cycle (0,12% de 10.000 -> 12)
+    pwm_set_gpio_level(gpio, (uint16_t)(10000 * duty_cycle));// Define o nível do duty cycle (0,12% de 10.000 -> 12)
     pwm_set_enabled(slice, true);// Ativa o PWM
 }
 
